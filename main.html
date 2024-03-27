@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page (test)</title>
+<link href="favicon.ico" rel="icon">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+        animation: fadeIn 0.7s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #login-form {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        width: 320px;
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .logo {
+        width: 50px; 
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h2 img {
+        margin-right: 12px; 
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: calc(100% - 20px);
+        padding: 12px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        width: calc(100% - 20px);
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 0;
+        margin: 10px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 8px;
+    }
+
+    .signup-link {
+        color: #666;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .signup-link:hover {
+        color: #333;
+    }
+</style>
+</head>
+<body>
+<div id="login-form">
+    <h2><img src="login-icon-png-1.png" alt="Login Icon" class="logo">Login</h2>
+    <form id="login-form" onsubmit="return validateLogin()">
+        <input type="text" id="email" placeholder="Email" required><br>
+        <input type="password" id="password" placeholder="Password" required><br>
+        <input type="submit" value="Login">
+        <p id="error-message" class="error-message"></p>
+    </form>
+    <p>Don't have an account? <a href="#" class="https://discord.com/invite/fVscgvNVjj">Sign up</a></p>
+</div>
+
+<script>
+    function validateLogin() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        
+        if (email === "nick@gmail.com" && password === "994285") {
+            
+            window.location.href = "success.html";
+            return false; 
+        } else {
+            
+            document.getElementById("error-message").innerHTML = "Invalid email or password";
+            return false; 
+        }
+    }
+
+    const storedColor = localStorage.getItem('backgroundColor');
+
+    if (storedColor) {
+        if (storedColor.startsWith('linear-gradient')) {
+            document.body.style.background = storedColor;
+        } else {
+            document.body.style.backgroundColor = storedColor;
+        }
+    }
+    
+</script>
+</body>
+</html>
